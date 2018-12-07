@@ -2,3 +2,15 @@ ul {
 	list-style: none;
 	padding-left: 0px;
 }
+.scrape {
+	margin-bottom: 2rem;
+}
+.titleImg {
+	background-image: url("../img/laptop.jpg");
+}
+.myTitle {
+	color: #ffffff;
+}
+body {
+	background-color: #f0ead6;
+}

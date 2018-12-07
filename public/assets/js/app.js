@@ -15,9 +15,20 @@ $(document).ready(()=>{
 		});
 	});
 
-	$(".deleteButton").click(()=>{
-		console.log("yoyoo");
-	})
+	$(document).on("click", "button.deleteButton", (event)=> {
+		$(".bd-example-modal-lg").modal("hide");
+		const id = event.target.id;
+		$.ajax("/notes/" + id, {
+			type: "DELETE"
+		}).then(() =>{
+			console.log("success");
+		});
+	});
 
+	$(".scrape").click((event) => {
+		$.get("/scrape", (data) => {
+
+		});
+	});
 
 });

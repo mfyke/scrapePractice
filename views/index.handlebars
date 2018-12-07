@@ -1,17 +1,20 @@
 <div class="container">
-	<div class="jumbotron">
-		<h1 class="text-center">Google Tech News Scrape</h1>
+	<div class="jumbotron titleImg">
+		<h1 class="myTitle text-center">Google Tech News Scrape</h1>
 		
 	</div>
 	<div class="row">
 		<div class="col-md-6 offset-md-3 text-center">
+		<button class="btn btn-primary scrape">Scrape For More Articles</button>
 			<ul>
 				{{#each articles}}
-					<li>
-						<h1 data-toggle="modal" data-target=".bd-example-modal-lg" id={{this._id}} class="newsHeadline">{{this.title}}</h1>
+				<div class="card">
+					<li class = "card-body">
+						<h1 data-toggle="modal" data-target=".bd-example-modal-lg" id={{this._id}} class="card-title newsHeadline">{{this.title}}</h1>
 						<p>{{this.body}}</p>
 						<a href={{this.link}}>Google link</a>
 					</li>
+				</div> 
 				{{/each}}		
 			</ul>
 		</div>
