@@ -8,6 +8,11 @@ const app = express();
 
 app.use(express.static("public"));
 
+const mongoose = require("mongoose");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape";
+const connection = mongoose.connect(MONGODB_URI);
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

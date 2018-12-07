@@ -1,5 +1,27 @@
 <div class="container">
 	<div class="jumbotron">
-		<h1 class="text-center">Google Tech News</h1>
+		<h1 class="text-center">Google Tech News Scrape</h1>
+		
 	</div>
+	<div class="row">
+		<div class="col-md-6 offset-md-3 text-center">
+			<ul>
+				{{#each articles}}
+					<li>
+						<h1 data-toggle="modal" data-target=".bd-example-modal-lg" id={{this._id}} class="newsHeadline">{{this.title}}</h1>
+						<p>{{this.body}}</p>
+						<a href={{this.link}}>Google link</a>
+					</li>
+				{{/each}}		
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    	
+    </div>
+  </div>
 </div>
