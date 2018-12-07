@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 const cheerio = require("cheerio");
-const axios = require("axios");
+const request = require("request");
 
 
 router.get("/", (req,res) => {
@@ -22,8 +22,25 @@ router.get("/notes/article/:id", (req,res) =>{
 });
 
 router.get("/scrape", (req,res) => {
-	axios.get("https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US%3Aen").then((response) => {
-		console.log(response);
+	request("https://techcrunch.com/", (error, response, html) => {
+		const $ = cheerio.load(html);
+		$("div.post-block").each((i, element)=>{
+			var title = $(element).find("a.post-block__title__link").text().trim();
+      		var link = $(element).find("a.post-block__title__link").attr("href");
+      		var sum = $(element).children(".post-block__content").text().trim();
+      		db.Article.create({
+      			title: title,
+      			body: sum,
+      			link: link
+      		},(error, data) =>{
+
+      		});
+      		if(i>=10) {
+
+      			return false;
+      		}
+		});
+		res.redirect("/");
 	});
 });
 
@@ -46,3 +63,8 @@ router.delete("/notes/:id", (req,res) => {
 
 
 module.exports=router;
+			
+
+			
+      		
+      		

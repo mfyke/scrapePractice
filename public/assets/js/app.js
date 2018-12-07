@@ -27,7 +27,7 @@ $(document).ready(()=>{
 
 	$(".scrape").click((event) => {
 		$.get("/scrape", (data) => {
-
+			window.location.reload();
 		});
 	});
 
