@@ -13,4 +13,4 @@
 
 ## Application Function
 
-This app uses cheerio to scrape news articles from Google Tech news. It then gives you the ability to save these articles for later. The application used Handlebars to handle the templating for the application views. 
+This app uses cheerio to scrape news articles from Google Tech news. The articles automatically save to the page and users can add or remove comments, or they can scrape for more articles. The application used Handlebars to handle the templating for the application views. 
